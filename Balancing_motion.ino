@@ -99,6 +99,9 @@ void setup()
   Serial1.begin(57600);
   //Serial.println("     send_char_data    ");
 
+   
+   // motor pins 
+   // motor driver used takes 2 signal 1 the pwm values ans other is the direction signal
   pinMode(pinA, OUTPUT);
   pinMode(pinB, OUTPUT);
   pinMode(pinC, OUTPUT);
@@ -220,6 +223,8 @@ void kalman()
 
 void pid(double val)
 {
+   // the values for kp , ki , kd are used here are only for the specific cinfiguration of the robot 
+   // the values can change with diffiernt robot
   kp = (double)analogRead(A3) / 10.0; //read value from potentiometer
   ki = (double)analogRead(A4) / 100.0; //read value from potentiometer
   kd = (double)analogRead(A5) / 2.0; //read value from potentiometer
